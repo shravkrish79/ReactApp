@@ -1,0 +1,23 @@
+/* Reset webpage styles*/
+/* *{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+  } */
+  
+
+  .InputLst {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 5px 5px;
+  }
+
+  .InputLst_header {
+    grid-column: 2/3;
+  }
+
+  .InputLst_form{
+    grid-column: 2/3;
+  }

@@ -1,0 +1,16 @@
+/* Reset webpage styles*/
+/* *{
+  padding: 0;
+  margin: 0;
+  outline: none;
+  border: none;
+} */
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
