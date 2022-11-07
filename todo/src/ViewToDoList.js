@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, } from "react";
 
 function ViewToDoList(props) {
 
@@ -6,32 +6,50 @@ function ViewToDoList(props) {
     let completeData = props.completeData;
     const [displayFlag, setDisplayFlag] = useState(false);
     const [sortFlag, setSortFlag] = useState(false);
-    const [sortOrder, setSortOrder] = useState(1);
 
-    const sortName = (e) => {
-        setSortOrder (sortOrder>1 ? 0 : sortOrder+1);
-        switch(sortOrder) {
-            case 1:
-                data.sort((a, b) => (a.name > b.name) ? 1 : (a.name < b.name ? -1 : 0));  
+    const [sortData, setSortData] = useState([]);
+    // const [sortObj, setSortObj] = useState({
+    //     sortBy: null,
+    //     sortOrder: null
+    // });
+    let sortObj = {
+        sortBy: null,
+        sortOrder: null
+    };
+
+
+    const sortDataHandle = (e) => {
+        e.preventDefault();
+        let objIndex = sortData.findIndex(id => id.sortBy === e.target.id);
+        if (objIndex === -1) {
+            sortObj=({
+                sortBy: e.target.id,
+                sortOrder: 'asc'
+            });
+            setSortData([...sortData, sortObj]);
+        }
+        else if (objIndex > -1) {
+            let objOrder = sortData[objIndex].sortOrder;
+            sortObj=({
+                sortBy: e.target.id,
+                sortOrder: (objOrder === 'asc') ? 'desc' : 'asc'
+            });
+
+            sortData[objIndex] = sortObj;
+        }
+        console.log(sortObj);
+        setSortFlag(true);
+        switch (sortObj.sortOrder) {
+            case 'asc':
+                data.sort((a, b) => (a[sortObj.sortBy] > b[sortObj.sortBy]) ? 1 : (a[sortObj.sortBy] < b[sortObj.sortBy] ? -1 : 0));
                 break;
-            case 2:
-                data.sort((a, b) => (a.name > b.name) ? -1 : (a.name < b.name ? 1 : 0));  
+            case 'desc':
+                data.sort((a, b) => (a[sortObj.sortBy] > b[sortObj.sortBy]) ? -1 : (a[sortObj.sortBy] < b[sortObj.sortBy] ? 1 : 0));
                 break;
             default:
-                window.location.reload();
-                data = props.listData;
                 break;
-        }       
-        e.preventDefault();
-        setSortFlag(true);
-        // console.log(data);
-    }
-
-    const sortPrice = (e) => {
-        data.sort((a, b) => (a.price > b.price) ? 1 : (a.price < b.price ? -1 : 0));
-        e.preventDefault();
-        setSortFlag(true);
-    }
+        }
+    };
 
     const addNewItem = (e) => {
         e.preventDefault();
@@ -48,22 +66,23 @@ function ViewToDoList(props) {
         e.preventDefault();
     }
 
-    if(sortFlag) {
+    if (sortFlag) {
         setSortFlag(false);
-        console.log(data);
+        console.log(sortData[sortData.length - 1].sortBy + ',' + sortData[sortData.length - 1].sortOrder);
+        console.log(sortObj);
     }
 
-    const renderViewItem =  data.map((recs, index) => {
-                return (
-                    <div key={index}>
-                        <input type="checkBox" id={`${index}`} onChange={handleView}></input>
-                        <label><span> {recs.name}</span> , <span>{recs.price}</span></label>
-                    </div>
-                );
-            });
+    const renderViewItem = data.map((recs, index) => {
+        return (
+            <div key={index}>
+                <input type="checkBox" id={`${index}`} onChange={handleView}></input>
+                <label><span> {recs.name}</span> , <span>{recs.price}</span></label>
+            </div>
+        );
+    });
 
-        
-    
+
+
 
     const renderCompleteItem = completeData.map((recs, index) => {
         return (
@@ -77,12 +96,12 @@ function ViewToDoList(props) {
     return (
         <div style={{ textAlign: "center" }}>
             <h1> welcome to List page.</h1>
-                <h3> Sort by:
-                    <span /> <button onClick={sortName}>name </button>
-                    <span /> <button onClick={sortPrice}>price</button>
-                </h3>
-                {renderViewItem}
-                <br />
+            <h3> Sort by:
+                <span /> <button id="name" onClick={sortDataHandle}>name </button>
+                <span /> <button id="price" onClick={sortDataHandle}>price</button>
+            </h3>
+            {renderViewItem}
+            <br />
             <button onClick={addNewItem}> Add New Item </button>
             <br /> <br />
             <button onClick={handleComplete}> view completed items</button>
