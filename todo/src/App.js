@@ -2,6 +2,8 @@ import './App.css';
 import GetItemInput from './GetItemInput';
 import ViewToDoList from './ViewToDoList';
 import WelcomeScreen from './WelcomeScreen';
+import Header from './Header';
+import Footer from './Footer';
 import React, { useState, useEffect } from 'react';
 
 function App() {
@@ -65,10 +67,11 @@ function App() {
 
   return (
     <div className="App">
+      <Header/>
       {
         ((ToDoList === null) && (anotherTask===0))
           ?
-          (<div> <WelcomeScreen AddNewItem={AddAnotherItem}/> </div>) : ((anotherTask === 1) ?
+          ( <WelcomeScreen AddNewItem={AddAnotherItem}/>) : ((anotherTask === 1) ?
             (<div> <GetItemInput AddItem={AddItemHandler} /></div>)
             :
             (<div> <ViewToDoList listData={task} completeData={completeTask} addAnotherItem={AddAnotherItem}
@@ -76,6 +79,7 @@ function App() {
           )
 
       }
+      <Footer/>
     </div>
   );
 }
