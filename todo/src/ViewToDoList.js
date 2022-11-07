@@ -2,22 +2,21 @@ import { useState, } from "react";
 
 function ViewToDoList(props) {
 
+    /* copying properties from */
     let data = props.listData;
     let completeData = props.completeData;
+
+    /* sort data variable declaration */
     const [displayFlag, setDisplayFlag] = useState(false);
     const [sortFlag, setSortFlag] = useState(false);
-
     const [sortData, setSortData] = useState([]);
-    // const [sortObj, setSortObj] = useState({
-    //     sortBy: null,
-    //     sortOrder: null
-    // });
     let sortObj = {
         sortBy: null,
         sortOrder: null
     };
 
 
+    /* Sort data based on user's input */
     const sortDataHandle = (e) => {
         e.preventDefault();
         let objIndex = sortData.findIndex(id => id.sortBy === e.target.id);
@@ -37,7 +36,7 @@ function ViewToDoList(props) {
 
             sortData[objIndex] = sortObj;
         }
-        console.log(sortObj);
+        // console.log(sortObj);
         setSortFlag(true);
         switch (sortObj.sortOrder) {
             case 'asc':
@@ -51,16 +50,19 @@ function ViewToDoList(props) {
         }
     };
 
+    /* Handler for Add new item */
     const addNewItem = (e) => {
         e.preventDefault();
         props.addAnotherItem(e);
     }
 
+    /* Handler for view todo list items*/
     const handleView = (e) => {
         e.preventDefault();
         props.checkboxHandle(e);
     }
 
+    /* Handler for view completed todo list items*/
     const handleComplete = (e) => {
         setDisplayFlag(!displayFlag);
         e.preventDefault();
@@ -68,8 +70,6 @@ function ViewToDoList(props) {
 
     if (sortFlag) {
         setSortFlag(false);
-        console.log(sortData[sortData.length - 1].sortBy + ',' + sortData[sortData.length - 1].sortOrder);
-        console.log(sortObj);
     }
 
     const renderViewItem = data.map((recs, index) => {
@@ -107,6 +107,7 @@ function ViewToDoList(props) {
             <button onClick={handleComplete}> view completed items</button>
             <br /><br />
             {
+                //check display condition to view completed items
                 (displayFlag === true) ? renderCompleteItem : null
             }
         </div>

@@ -1,6 +1,7 @@
 import './App.css';
 import GetItemInput from './GetItemInput';
 import ViewToDoList from './ViewToDoList';
+import WelcomeScreen from './WelcomeScreen';
 import React, { useState, useEffect } from 'react';
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
       const newTask = {
         // id: new Date(),
         name: e.target.ItmName.value,
-        price: e.target.ItmPrice.value
+        price: Number(e.target.ItmPrice.value)
       };
       setTask([...task, newTask]);
       task.push(newTask);
@@ -50,33 +51,29 @@ function App() {
         name: task[e.target.id].name,
         price: task[e.target.id].price
       };
-      setCompleteTask([...completeTask,movetask]);
+      setCompleteTask([...completeTask, movetask]);
       completeTask.push(movetask);
-      window.localStorage.setItem('myCompleteList',JSON.stringify(completeTask));
-      
-      task.splice(e.target.id,1);
+      window.localStorage.setItem('myCompleteList', JSON.stringify(completeTask));
+
+      task.splice(e.target.id, 1);
       window.localStorage.setItem('myToDoList', JSON.stringify(task));
-      
-      // let ToDoListCount = JSON.parse(window.localStorage.getItem('myToDoList')).length;
-      // if (ToDoListCount===0) {
-      //   window.localStorage.removeItem('myToDoList');
-      // }
 
     }
   };
 
-  //  console.log(anotherTask);
 
 
   return (
     <div className="App">
       {
-        ((ToDoList === null) || (anotherTask === 1)) 
+        ((ToDoList === null) && (anotherTask===0))
           ?
-          (<div> <GetItemInput AddItem={AddItemHandler} /></div>)
-          :
-          (<div> <ViewToDoList listData={task} completeData={completeTask} addAnotherItem={AddAnotherItem} 
-            checkboxHandle={markItemComplete}/></div>)
+          (<div> <WelcomeScreen AddNewItem={AddAnotherItem}/> </div>) : ((anotherTask === 1) ?
+            (<div> <GetItemInput AddItem={AddItemHandler} /></div>)
+            :
+            (<div> <ViewToDoList listData={task} completeData={completeTask} addAnotherItem={AddAnotherItem}
+              checkboxHandle={markItemComplete} /></div>)
+          )
 
       }
     </div>
