@@ -1,4 +1,5 @@
 import { useState, } from "react";
+import './ViewToDoList.css';
 
 function ViewToDoList(props) {
 
@@ -74,9 +75,12 @@ function ViewToDoList(props) {
 
     const renderViewItem = data.map((recs, index) => {
         return (
-            <div key={index}>
+            <div class="todo" key={index}>
+                <div class="todo-items">
                 <input type="checkBox" id={`${index}`} onChange={handleView}></input>
                 <label><span> {recs.name}</span> , <span>{recs.price}</span></label>
+                </div>
+                <div class="todo-img"></div>
             </div>
         );
     });
@@ -94,17 +98,20 @@ function ViewToDoList(props) {
     });
 
     return (
-        <div style={{ textAlign: "center" }}>
-            <h1> welcome to List page.</h1>
+        <div class="viewlist">
+            <h1> Shopping List </h1>
             <h3> Sort by:
-                <span /> <button id="name" onClick={sortDataHandle}>name </button>
-                <span /> <button id="price" onClick={sortDataHandle}>price</button>
+            
+                <span /> <button class="sort-button" id="name" onClick={sortDataHandle}>name </button>
+                <span /> <button class="sort-button" id="price" onClick={sortDataHandle}>price</button>
+                
             </h3>
+            <br /><br/>
             {renderViewItem}
-            <br />
-            <button onClick={addNewItem}> Add New Item </button>
+            <br /><br/><br /><br/>
+            <button class="add-button" onClick={addNewItem}> Add New Item </button>
             <br /> <br />
-            <button onClick={handleComplete}> view completed items</button>
+            <button class="complete-button" onClick={handleComplete}> view completed items</button>
             <br /><br />
             {
                 //check display condition to view completed items

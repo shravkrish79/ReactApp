@@ -1,23 +1,47 @@
-/* Reset webpage styles*/
-/* *{
-    padding: 0;
-    margin: 0;
-    outline: none;
-    border: none;
-  } */
-  
 
   .InputLst {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     gap: 5px 5px;
+    justify-content: center;
+    align-items: center;
+    font-family: Noto Sans;
   }
 
-  .InputLst_header {
+  .InputLst-header {
     grid-column: 2/3;
+    justify-self: center;
   }
 
-  .InputLst_form{
+  .InputLst-form{
     grid-column: 2/3;
+    grid-row: 2/3;
+    justify-self: center;
+    
+  }
+
+  .form-button{
+    grid-column: 2/3;
+    grid-row: 3/3;
+    height: 40px;
+    width: 120px;
+    background-color: #0058ab;
+    color: #fff;
+    border-radius: 50px;
+  }
+
+  .form {
+    justify-content: center; 
+    align-items: center;
+    margin-right: auto;
+  }
+
+  .form label {
+    height: 60px;
+    white-space: nowrap;
+  }
+
+  .from input {
+    color: yellow;
   }
