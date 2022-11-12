@@ -33,7 +33,16 @@ function App() {
       const newTask = {
         // id: new Date(),
         name: e.target.ItmName.value,
-        price: Number(e.target.ItmPrice.value)
+        price: Number(e.target.ItmPrice.value),
+        img: { preview: null, 
+          raw: {
+          lastModified: null,
+          lastModifiedDate: null,
+          name: null,
+          size: null,
+          type: null,
+          }
+        }
       };
       setTask([...task, newTask]);
       task.push(newTask);
@@ -51,7 +60,8 @@ function App() {
     if (e.target.checked) {
       let movetask = {
         name: task[e.target.id].name,
-        price: task[e.target.id].price
+        price: task[e.target.id].price,
+        img: task[e.target.id].img
       };
       setCompleteTask([...completeTask, movetask]);
       completeTask.push(movetask);
@@ -63,7 +73,28 @@ function App() {
     }
   };
 
+// const [image, setImage] = useState({ preview: "", raw: "" });
 
+const addImgHandler = (e) => {
+    let itemIdx = (e.target.id).substring(11);
+    let image;
+
+    
+    if (e.target.files.length) {
+      console.log(e.target.files[0]);
+      image = {
+          preview: URL.createObjectURL(e.target.files[0])
+          // raw: e.target.files[0]
+      };
+      task[itemIdx].img.preview=image.preview;
+      
+      
+    } 
+ 
+    window.localStorage.setItem('myToDoList', JSON.stringify(task));
+    console.log(task);
+    setAnotherTask(0);
+};
 
   return (
     <div className="App">
@@ -75,7 +106,7 @@ function App() {
             (<div> <GetItemInput AddItem={AddItemHandler} /></div>)
             :
             (<div> <ViewToDoList listData={task} completeData={completeTask} addAnotherItem={AddAnotherItem}
-              checkboxHandle={markItemComplete} /></div>)
+              checkboxHandle={markItemComplete} addImage={addImgHandler}/></div>)
           )
 
       }

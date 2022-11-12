@@ -43,3 +43,21 @@
     width: 18px;
     
 }
+
+.todo-img label {
+    border: none;
+    background: none !important;
+    font-size: x-large;
+    border-radius: 50%;
+}
+
+.todo-img input {
+   display: none;
+}
+
+.todo-img img {
+    border-radius: 50%;
+    border: black;
+    max-width: 1024;
+    max-height: 720;
+ }

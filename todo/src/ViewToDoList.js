@@ -22,7 +22,7 @@ function ViewToDoList(props) {
         e.preventDefault();
         let objIndex = sortData.findIndex(id => id.sortBy === e.target.id);
         if (objIndex === -1) {
-            sortObj=({
+            sortObj = ({
                 sortBy: e.target.id,
                 sortOrder: 'asc'
             });
@@ -30,7 +30,7 @@ function ViewToDoList(props) {
         }
         else if (objIndex > -1) {
             let objOrder = sortData[objIndex].sortOrder;
-            sortObj=({
+            sortObj = ({
                 sortBy: e.target.id,
                 sortOrder: (objOrder === 'asc') ? 'desc' : 'asc'
             });
@@ -63,6 +63,13 @@ function ViewToDoList(props) {
         props.checkboxHandle(e);
     }
 
+    const handleChange = (e) => {
+        
+        e.preventDefault();
+        props.addImage(e);
+        setSortFlag(true);
+    };
+
     /* Handler for view completed todo list items*/
     const handleComplete = (e) => {
         setDisplayFlag(!displayFlag);
@@ -73,14 +80,27 @@ function ViewToDoList(props) {
         setSortFlag(false);
     }
 
+    // const [image, setImage] = useState({ preview: "", raw: "", id:"" });
+
+
+
     const renderViewItem = data.map((recs, index) => {
         return (
             <div class="todo" key={index}>
                 <div class="todo-items">
-                <input type="checkBox" id={`${index}`} onChange={handleView}></input>
-                <label><span> {recs.name}</span> , <span>{recs.price}</span></label>
+                    <input type="checkBox" id={`${index}`} onChange={handleView}></input>
+                    <label><span> {recs.name}</span> , <span>{recs.price}</span> </label>
                 </div>
-                <div class="todo-img"></div>
+                <div class="todo-img">
+                    <label htmlFor={("upload-img-").concat(`${index}`)}>
+                        { recs.img.preview ?
+                           ( <img src={recs.img.preview} alt="ItemImage" width="40px" height="40px" border-radius="50%"></img>)
+                            :
+                           (<i class="fa fa-image"></i>)
+                        }
+                    </label>
+                    <input type="file" id={("upload-img-").concat(`${index}`)} onChange={handleChange}></input>
+                </div>
             </div>
         );
     });
@@ -101,14 +121,14 @@ function ViewToDoList(props) {
         <div class="viewlist">
             <h1> Shopping List </h1>
             <h3> Sort by:
-            
+
                 <span /> <button class="sort-button" id="name" onClick={sortDataHandle}>name </button>
                 <span /> <button class="sort-button" id="price" onClick={sortDataHandle}>price</button>
-                
+
             </h3>
-            <br /><br/>
+            <br /><br />
             {renderViewItem}
-            <br /><br/><br /><br/>
+            <br /><br /><br /><br />
             <button class="add-button" onClick={addNewItem}> Add New Item </button>
             <br /> <br />
             <button class="complete-button" onClick={handleComplete}> view completed items</button>
