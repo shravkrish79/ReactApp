@@ -1,0 +1,67 @@
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color:rgb(62, 62, 24);
+}
+
+
+
+.banner {
+    margin-right: 5px;
+    margin-left: 5px;
+    width: 99.5%;
+    height: 150px;
+    background-color: darkgoldenrod;
+    border-radius: 20px;
+    position: absolute;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 5px;
+}
+
+img {
+  display: flex;
+  width: 150px;
+  height: 50px;
+  animation: resize-anime 10s ;
+  justify-content: center;
+  align-content: center;
+}
+
+.banner-center{
+  font-weight:300;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 10px;
+  min-height: 10px;
+  position: absolute;
+  animation: resize-anime 10s ;
+  animation-direction: alternate;
+}
+
+span{
+  text-shadow: black 1px 1px, black 2px 2px, black 3px 3px, black 4px 4px, black 5px 5px, black 6px 6px;
+  
+}
+
+@keyframes resize-anime {
+    from {
+      font-size: 20px;
+      font-weight: 100;
+      opacity:0
+    } 
+    to {
+      font-size: 30px;
+      font-weight: 300;
+      opacity:1
+    }
+  }
+
