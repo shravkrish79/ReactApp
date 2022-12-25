@@ -1,0 +1,41 @@
+.skills{
+    height: 60vh;
+    background-color: #fff;
+    padding: 10px 10px;
+    padding-top: 80px;
+
+}
+
+.tech-desc{
+    padding: 10px;;
+}
+
+.tech-list{
+    display: flex;
+    flex-wrap: wrap;
+    width: 345px;
+    height: 345px;
+    gap: 30px;
+    font-size: var(--font-desc);
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tech-item img{
+    height:40px;
+    width: 40px;
+}
+
+.tech-item{
+    width: 70px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 10px 4px 10px #000000;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+}

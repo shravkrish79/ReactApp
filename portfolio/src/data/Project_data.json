@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "title": "Eika-Shopping List",
+    "image": "todolist.png",
+    "bgc": "todolist",
+    "description": "A shopping list app where users can add items to the shopping list",
+    "technologies": ["React", "JavaScript", "HTML", "CSS", "Netlify"],
+    "isCompleted": true,
+    "screenshot": "eika_shoppinglist.png",
+    "githubURL": "https://github.com/Poongothai-R/Eika-ToDoList",
+    "websiteURL": "https://eika-shoppinglist.netlify.app/"
+  },
+
+  {
+    "id": 2,
+    "title": "Vegan Restaurant",
+    "image": "vegan_rest.png",
+    "bgc": "vegan_rest",
+    "description": "This is a multi page website which uses complex JSON files to simulate data coming from an API",
+    "technologies": ["React", "JavaScript", "HTML", "CSS", "Firebase"],
+    "isCompleted": false,
+    "screenshot": "vegan_rest.png",
+    "githubURL": "",
+    "websiteURL": ""
+  },
+
+  {
+    "id": 3,
+    "title": "Package Tracker",
+    "image": "package_tracker.png",
+    "bgc": "package_tracker",
+    "description": "This project uses a real API call to obtain and present data from a server",
+    "technologies": ["React", "JavaScript", "HTML", "CSS", "Firebase"],
+    "isCompleted": false,
+    "screenshot": "package_tracker.png",
+    "githubURL": "",
+    "websiteURL": ""
+  },
+  {
+    "id": 4,
+    "title": "BBQ Restaurant",
+    "image": "bbq_rest.png",
+    "bgc": "bbq_rest",
+    "description": "This project uses test driven development testing techniques to use unit testing",
+    "technologies": ["React", "JavaScript", "HTML", "CSS", "Firebase"],
+    "isCompleted": false,
+    "screenshot": "bbq_rest.png",
+    "githubURL": "",
+    "websiteURL": ""
+  },
+  {
+    "id": 5,
+    "title": "Learning Platform",
+    "image": "learning_platform.png",
+    "bgc": "learning_platform",
+    "description": "This project allows to create admin panel and add some full stack features",
+    "technologies": ["React", "JavaScript", "HTML", "CSS", "Firebase"],
+    "isCompleted": false,
+    "screenshot": "learning_platform.png",
+    "githubURL": "",
+    "websiteURL": ""
+  },
+
+  {
+    "id": 6,
+    "title": "Netflix Clone",
+    "image": "netflix.png",
+    "bgc": "netflix",
+    "description": "This project combines all the techniques in the Tech stack with the UI",
+    "technologies": ["React", "JavaScript", "HTML", "CSS", "Firebase"],
+    "isCompleted": false,
+    "screenshot": "netflix.png",
+    "githubURL": "",
+    "websiteURL": ""
+  }
+]

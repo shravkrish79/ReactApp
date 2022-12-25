@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "title": "poongothai.rajesh@icloud.com",
+    "link": "mailto:poongothai.rajesh@icloud.com",
+    "image": "email.png"
+  },
+
+  {
+    "id": 2,
+    "title": "+46 724335556",
+    "link": "tel: +46 724335556",
+    "image": "phone.png"
+  },
+
+  {
+    "id": 3,
+    "title": "Stockholm, Sweden",
+    "link": "https://www.google.com/maps/place/Stockholm",
+    "image": "location.png"
+  }
+
+ 
+]

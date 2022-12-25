@@ -1,0 +1,34 @@
+.about {
+    height: 80vh;
+    padding-top: 80px;
+    background-color: #fff;
+}
+
+.about-left {
+    height: 60%;
+    background-color: #b52b52;
+    color: #fff;
+    padding: 10px 10px;
+
+}
+
+.about-right {
+    height: 40%;
+}
+
+.about-desc {
+    padding: 10px;
+}
+
+.about-right img {
+    width: 200px;
+    height: 200px;
+    left: 70px;
+    margin-top: 10px;
+    border-radius: 65px 0px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: #b52b52 1px solid;
+    border-color: black;
+}

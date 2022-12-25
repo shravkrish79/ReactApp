@@ -1,0 +1,32 @@
+.hero{
+    height: 95vh;
+    padding-top:80px;
+}
+
+.hero-left{
+    height: 30%;
+    padding: 10px 30px;
+    background-color: #fff;
+}
+
+.hero-right{
+    height: 69%;
+    background-image: url('../assests/hero/L1.png');
+    background-repeat: mo-repeat;
+    background-size: cover;
+}
+
+span{
+    width: auto;
+    justify-content: left;
+    font-weight: 500;
+}
+
+#heroname{
+    color: #B52B52;
+    font-weight: 900;
+}
+
+#heroplace{
+    color: #4F7A18;
+}

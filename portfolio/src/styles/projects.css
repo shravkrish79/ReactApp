@@ -1,0 +1,108 @@
+.projects {
+    display: flex;
+    padding: 10px;
+    padding-top: 80px;
+    /* margin-top: auto; */
+    height: 90vh;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    flex-direction: column;
+    font-family: var(--font-family);
+
+}
+
+.project-title {
+    font-size: var(--font-title);
+    font-weight: var(--font-titleweight);
+    height: 80px;
+}
+
+.project-desc {
+    font-size: var(--font-desc);
+    font-weight: var(--font-descweight);
+    position: relative;
+}
+
+.project-list {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 610px;
+    gap: 30px;
+    font-size: var(--font-desc);
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-card {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 10px 4px 30px #000000;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+.project-card img {
+    width: 150px;
+    height: 95px;
+}
+
+.project-card span {
+    width: 150px !important;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center!important;
+
+}
+
+#todolist {
+    background-color: #4d2929;
+}
+
+#vegan_rest {
+    background-color: #55673D;
+}
+
+#package_tracker {
+    background-color: #132949;
+}
+
+#bbq_rest {
+    background-color: #665e5e;
+}
+
+#learning_platform {
+    background-color: #4a7dab;
+}
+
+.netflix {
+    background-color: #e00909;
+}
+
+.blurcard {
+    filter: blur(1px);
+}
+
+.project-text {
+    display: flex;
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 8px;
+  }
+
+  .project-text h4 {
+    font-family: var(--font-family);
+    font-size: 18px;
+    font-style: Bold;
+    color: #fff;
+    text-transform: uppercase;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+  }
